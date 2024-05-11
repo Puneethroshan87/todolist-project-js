@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to do list</title>
+</head>
+<style>
+    .aaaaaa{
+       
+        color: rgb(14, 13, 13);
+        height: 500px;
+        width: 400px;
+        border-radius: 20px;
+       backdrop-filter: blur(15px ) ;
+       align-items: center;
+       justify-content: center;
+       justify-items: center;
+       display: flex;
+       flex-direction: column;
+       margin-top: 150px;
+    }
+       body{
+        background-image: url(./todo-pic.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    h1{
+        text-align: center;
+        font-size: 50px;
+    }
+    .textt{
+        height: 30px;
+        width: 200px;
+        border-radius:15px ;
+        border: none;
+    }
+    .submitt{
+        height: 35px;
+        width: 100px;
+        border-radius: 15px;
+        border: none;
+        font-size: 20px;
+    }
+    ::placeholder{
+        font-size: 20px;
+        justify-content: center;
+    }
+</style>
+<body>
+    <center>
+    <div class="aaaaaa">
+<h1>ToDo</h1>
+ <form>
+    <input type="text" placeholder="enter to do list" required class="textt">
+    <input type="submit" class="submitt">
+ </form>
+
+
+ <h3 style="opacity: 0.5;">pending</h3>
+
+ <table id="tab1"></table>
+
+
+ <h3 style="opacity: 0.5;">Completed</h3>
+
+ <table id="tab2"></table>
+
+</div>
+</center>
+ <script>
+var f=document.forms
+
+f[0].addEventListener("submit",(e)=>{
+    e.preventDefault();
+    a=e.target[0].value;
+
+var tb1=document.getElementById("tab1");
+var tr1=document.createElement("tr");
+var td1=document.createElement("td");
+td1.innerHTML=a;
+
+var td2=document.createElement("td");
+td2.innerHTML="<button id='tick'>&#10003</button>"
+
+var td3=document.createElement("td");
+td3.innerHTML="<button id='cross'>&#10005</button>" 
+
+
+if(a!== " "){
+    tr1.appendChild(td1);
+    tr1.appendChild(td2);
+    tr1.appendChild(td3);
+    tab1.appendChild(tr1)
+}
+ e.target[0].value="";
+
+
+td2.querySelector("#tick").addEventListener("click",()=>{
+    var tab2=document.getElementById("tab2");
+    var tr2=document.createElement("tr");
+    var tdd=document.createElement("td");
+
+    tdd.innerHTML=td1.innerHTML;
+    tr2.appendChild(tdd);
+    tab2.appendChild(tr2)
+
+    tr1.remove();
+
+
+})
+
+td3.querySelector("#cross").addEventListener("click",()=>{
+    tr1.remove();
+})
+})
+
+
+
+
+
+ </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
